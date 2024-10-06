@@ -1,7 +1,7 @@
-const jwt = require('jsonwebtoken')
-const UserModel = require('../models/User')
+const jwt = require("jsonwebtoken");
+const UserModel = require("../models/User");
 const checkAuth = async (req, res, next) => {
-  const { token } = req.cookies
+  const { token } = req.cookies;
   // if (!token) {
   //   req.flash('error', 'Unauthorized User Please Login')
   //   res.redirect('/login')
@@ -13,5 +13,5 @@ const checkAuth = async (req, res, next) => {
     req.user = await UserModel.findById(decoded.userId);
   }
   next();
-}
-module.exports = checkAuth
+};
+module.exports = checkAuth;

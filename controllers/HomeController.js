@@ -1,13 +1,12 @@
 class HomeController {
   static home = async (req, res) => {
     try {
-      console.log(req.user)
       res.render("home", {
         title: "Home",
-        authUser: req.user || null
+        authUser: req.user
       });
     } catch (error) {
-      console.log(error);
+      console.error(error);
     }
   };
 }

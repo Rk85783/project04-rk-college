@@ -103,6 +103,11 @@
       box-shadow: 0 0 10px #ccc;
     }
 
+    .after-card a {
+      text-decoration: none; 
+      color: white
+    }
+
     @media (max-width: 480px) {
       .card {
         width: 100%;
@@ -130,10 +135,13 @@
         <input type="text" name="email" placeholder="Email">
         <input type="password" name="password" placeholder="Password">
         <div class="buttons">
-          <a href="/signup">Create a new account</a>
           <button type="submit" class="login-button">Login</button>
         </div>
       </form>
+    </div>
+    <br>
+    <div>
+      New User? Please Click <a href="/signup">Here</a>
     </div>
   </div>
 </body>

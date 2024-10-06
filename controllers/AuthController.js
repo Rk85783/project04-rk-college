@@ -7,12 +7,14 @@ class AuthController {
   static login = async (req, res) => {
     try {
       res.render("login", {
+        layout: false,
         title: "Login",
         successMsg: req.flash("success"),
         errorMsg: req.flash("error")
       });
     } catch (error) {
-      console.log(error);
+      console.error(error);
+      res.send(error);
     }
   };
 
@@ -41,7 +43,7 @@ class AuthController {
       res.cookie("token", token);
       res.redirect("/");
     } catch (error) {
-      console.log(error);
+      console.error(error);
     }
   };
 
@@ -49,17 +51,17 @@ class AuthController {
     try {
       res.render("signup", {
         title: "Sign Up",
+        layout: false,
         successMsg: req.flash("success"),
         errorMsg: req.flash("error")
       });
     } catch (error) {
-      console.log(error);
+      console.error(error);
     }
   };
 
   static signupSubmit = async (req, res) => {
     try {
-      // console.log(req.body);
       const { firstName, lastName, email, password } = req.body;
 
       if (!firstName || !lastName || !email || !password) {
@@ -74,25 +76,24 @@ class AuthController {
       }
 
       const hashPassword = await bcrypt.hash(password, 10);
-      const newUser = await UserModel.create({
+      await UserModel.create({
         firstName,
         lastName,
         email,
         password: hashPassword
       });
-      console.log(newUser);
       res.redirect("/");
     } catch (error) {
-      console.log(error);
+      console.error(error);
     }
   };
 
   static logout = async (req, res) => {
     try {
-      res.clearCookie('token');
-      res.redirect('/login');
+      res.clearCookie("token");
+      res.redirect("/");
     } catch (error) {
-      console.log(error);
+      console.error(error);
     }
   };
 }
