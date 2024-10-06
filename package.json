@@ -4,13 +4,20 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "dev": "nodemon index.js"
+    "dev": "nodemon index.js",
+    "lint": "eslint .",
+    "fix": "eslint . --fix"
   },
   "keywords": [],
   "author": "Rohit Kumar Mahor",
   "license": "ISC",
   "description": "",
   "devDependencies": {
+    "eslint": "^8.57.1",
+    "eslint-config-standard": "^17.1.0",
+    "eslint-plugin-import": "^2.31.0",
+    "eslint-plugin-n": "^16.6.2",
+    "eslint-plugin-promise": "^6.6.0",
     "nodemon": "^3.1.7"
   },
   "dependencies": {
