@@ -9,6 +9,7 @@ router.get("/", HomeController.home);
 router.get("/login", AuthController.login);
 router.get("/signup", AuthController.signup);
 
+router.post("/login", AuthController.loginSubmit);
 router.post("/signup", AuthController.signupSubmit);
 
 module.exports = router;

@@ -115,10 +115,20 @@
 <body>
   <div class="container">
     <h1 class="title">Rk - College</h1>
+    <% if(successMsg.length> 0){ %>
+      <div class="alert alert-success" style="color: green">
+        <%= successMsg %>
+      </div>
+    <% } %>
+    <% if(errorMsg.length> 0){ %>
+      <div class="alert alert-danger" style="color: red">
+        <%= errorMsg %>
+      </div>
+    <% } %>
     <div class="card">
-      <form>
-        <input type="text" placeholder="Username">
-        <input type="password" placeholder="Password">
+      <form action="/login" method="post">
+        <input type="text" name="email" placeholder="Email">
+        <input type="password" name="password" placeholder="Password">
         <div class="buttons">
           <a href="/signup">Create a new account</a>
           <button type="submit" class="login-button">Login</button>
