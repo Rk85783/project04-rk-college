@@ -103,8 +103,8 @@
       box-shadow: 0 0 10px #ccc;
     }
 
-    .after-card a {
-      text-decoration: none; 
+    .after-card {
+      text-decoration: none;
       color: white
     }
 
@@ -119,17 +119,19 @@
 
 <body>
   <div class="container">
-    <h1 class="title">Rk - College</h1>
-    <% if(successMsg.length> 0){ %>
-      <div class="alert alert-success" style="color: green">
-        <%= successMsg %>
-      </div>
-    <% } %>
-    <% if(errorMsg.length> 0){ %>
-      <div class="alert alert-danger" style="color: red">
-        <%= errorMsg %>
-      </div>
-    <% } %>
+    <div>
+      <% if(successMsg.length> 0){ %>
+        <div class="alert alert-success" style="color: green">
+          <%= successMsg %>
+        </div>
+        <% } %>
+          <% if(errorMsg.length> 0){ %>
+            <div class="alert alert-danger" style="color: red">
+              <%= errorMsg %>
+            </div>
+            <% } %>
+    </div>
+    <h1 class="title"><a href="/" class="after-card">Rk - College</a></h1>
     <div class="card">
       <form action="/login" method="post">
         <input type="text" name="email" placeholder="Email">

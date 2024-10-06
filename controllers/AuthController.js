@@ -82,7 +82,8 @@ class AuthController {
         email,
         password: hashPassword
       });
-      res.redirect("/");
+      req.flash("success", "You are successfully registered, please login now");
+      res.redirect("/login");
     } catch (error) {
       console.error(error);
     }
